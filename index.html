@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PassGen – Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>pass<span>gen</span></h1>
+  <p>Generate secure passwords, your way.</p>
+</header>
+
+<div class="card">
+
+  <div class="output-wrap">
+    <div id="passwordOutput" class="placeholder">click generate →</div>
+    <button class="copy-btn" id="copyBtn" onclick="copyPassword()">copy</button>
+  </div>
+
+  <div class="strength-row">
+    <div class="strength-bars">
+      <span id="s1"></span>
+      <span id="s2"></span>
+      <span id="s3"></span>
+      <span id="s4"></span>
+    </div>
+    <div class="strength-label" id="strengthLabel">—</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="field-label">Length</div>
+  <div class="length-row">
+    <input type="range" id="lengthSlider" min="4" max="64" value="16" oninput="syncLength(this.value)" />
+    <div class="length-val" id="lengthVal">16</div>
+  </div>
+
+  <div class="field-label">Character types</div>
+  <div class="options-grid">
+
+    <label class="option-item active" id="lbl-upper">
+      <input type="checkbox" id="chk-upper" checked />
+      <div class="checkbox-box">
+        <svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="option-text">Uppercase</div>
+        <span class="option-preview">A–Z</span>
+      </div>
+    </label>
+
+    <label class="option-item active" id="lbl-lower">
+      <input type="checkbox" id="chk-lower" checked />
+      <div class="checkbox-box">
+        <svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="option-text">Lowercase</div>
+        <span class="option-preview">a–z</span>
+      </div>
+    </label>
+
+    <label class="option-item active" id="lbl-numbers">
+      <input type="checkbox" id="chk-numbers" checked />
+      <div class="checkbox-box">
+        <svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="option-text">Numbers</div>
+        <span class="option-preview">0–9</span>
+      </div>
+    </label>
+
+    <label class="option-item" id="lbl-special">
+      <input type="checkbox" id="chk-special" />
+      <div class="checkbox-box">
+        <svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <div class="option-text">Special</div>
+        <span class="option-preview">!@#$%^&*</span>
+      </div>
+    </label>
+
+  </div>
+
+  <div class="error-msg" id="errorMsg">⚠ Select at least one character type.</div>
+
+  <button class="gen-btn" onclick="generatePassword()">Generate Password</button>
+
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
